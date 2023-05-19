@@ -1,0 +1,110 @@
+---
+title: "Find a Gene Project Q1-Q4"
+author: Max Gruber
+date: 5/16/2023
+format: pdf
+---
+
+# Find a Gene
+
+### \[**Q1**\] Tell me the name of a protein you are interested in. Include the species and the accession number. This can be a human protein or a protein from any other species as long as it's function is known.
+
+Name: Kinesin-like protein (KIF11)
+
+Accession: NP_004514.2
+
+Species: Homo sapiens
+
+Function: This protein is involved in various types of spindle dynamics, including chromosomal positioning, centrosome separation, and establishing bipolar spindle during mitosis.
+
+### \[**Q2**\] Perform a BLAST search against a DNA database, such as a database consisting of genomic DNA or ESTs. The BLAST server can be at NCBI or elsewhere. Include details of the BLAST method used, database searched and any limits applied (e.g. Organism).
+
+Method: TBLASTN search against dog ESTS
+
+Database: Expressed Sequence Tags (est)
+
+Organism: Dogs (Taxid: 6659)
+
+![](images/Image%205-15-23%20at%207.30%20PM.jpg)
+
+Chosen match: Accession CX991090.1, a 906 base pair clone from *Canis familiaris* (dogs). See below for alignment details.
+
+![](images/Image%205-16-23%20at%208.42%20AM.jpg)
+
+![](images/Image%205-16-23%20at%208.43%20AM.jpg)
+
+**DOG_EST_P78A02 Canis familiaris testis cDNA Canis lupus familiaris cDNA, mRNA sequence**
+
+**Sequence ID:** [CX991090.1](https://www.ncbi.nlm.nih.gov/nucleotide/CX991090.1?report=genbank&log$=nuclalign&blast_rank=3&RID=65URYSX3013 "Show report for CX991090.1") **Length:** 906 **Number of Matches:** 1
+
+**Range 1: 113 to 853** [GenBank](https://www.ncbi.nlm.nih.gov/nucleotide/CX991090.1?report=genbank&log$=nuclalign&blast_rank=3&RID=65URYSX3013&from=113&to=853 "Aligned region spanning positions 113 to 853 on CX991090.1")[Graphics](https://www.ncbi.nlm.nih.gov/nuccore/CX991090.1?report=graph&rid=65URYSX3013%5BCX991090.1%5D&tracks=%5Bkey:sequence_track,name:Sequence,display_name:Sequence,id:STD1,category:Sequence,annots:Sequence,ShowLabel:true%5D%5Bkey:gene_model_track,CDSProductFeats:false%5D%5Bkey:alignment_track,name:other%20alignments,annots:NG%20Alignments%7CRefseq%20Alignments%7CGnomon%20Alignments%7CUnnamed,shown:false%5D&v=76:890&appname=ncbiblast&link_loc=fromHSP "Show alignment to CX991090.1 in Nucleotide Graphics for 113 to 853 range") Next Match Previous Match
+
+|               |        |                              |              |              |            |                                       |
+|---------------|--------|------------------------------|--------------|--------------|------------|---------------------------------------|
+|               |        |                              |              |              |            | **Alignment statistics for match #1** |
+| Score         | Expect | Method                       | Identities   | Positives    | Gaps       | Frame                                 |
+| 206 bits(525) | 7e-59  | Compositional matrix adjust. | 119/260(46%) | 158/260(60%) | 15/260(5%) | +2                                    |
+
+```         
+Query  12   KEEKGKNIQVVVRCRPFNLAERKASAHSIVECDPVRKEVSVRTGGLADKSSRKTYTFDMV  71
+            K E   N++VVVRCRP N  E+       V  D +R  ++V     +++   KT+TFD V
+Sbjct  113  KPESCDNVKVVVRCRPLNEREKSMCYKQAVSVDEMRGTITVHKTDSSNEPP-KTFTFDTV  289
+
+Query  72   FGASTKQIDVYRSVVCPILDEVIMGYNCTIFAYGQTGTGKTFTMEGERSPNEEYTWEEDP  131
+            FG  +KQ+DVY     PI+D V+ GYN TIFAYGQTGTGKTFTMEG R+  E        
+Sbjct  290  FGPESKQLDVYNLTARPIIDSVLEGYNGTIFAYGQTGTGKTFTMEGVRAVPE--------  445
+
+Query  132  LAGIIPRTLHQIFEKL--TDNGTEFSVKVSLLEIYNEELFDLLNPSSDVSERLQMFDDPR  189
+            L GIIP +   IF  +   +  T F V+VS LEIYNEE+ DLL    D ++RL++ + P 
+Sbjct  446  LRGIIPNSFAHIFGHIAKAEGDTRFLVRVSYLEIYNEEVRDLL--GKDQTQRLEVKERP-  616
+
+Query  190  NKRGVIIKGLEEITVHNKDEVYQILEKGAAKRTTAATLMNAYSSRSHSVFSVTIHMKETT  249
+               GV IK L    V+N D++ +I+  G   R+  AT MN +SSRSH++F++TI   E  
+Sbjct  617  -DVGVYIKDLSAYVVNNADDMDRIMTLGHKNRSVGATNMNEHSSRSHAIFTITIECSEKG  793
+
+Query  250  IDGEELVKIGKLNLVDLAGS  269
+             DG   V++GKL+LVDLAGS
+Sbjct  794  RDGNMHVRMGKLHLVDLAGS  853
+```
+
+### \[**Q3**\] Gather information about this "novel" **protein**. At a minimum, show me the protein sequence of the "novel" protein as displayed in your BLAST results from \[Q2\] as FASTAformat (you can copy and paste the aligned sequence subject lines from your BLAST result page if necessary) or translate your novel DNA sequence using a tool called EMBOSS Transeq at the EBI. Don't forget to translate all six reading frames; the ORF (open reading frame) is likely to be the longest sequence without a stop codon. It may not start with a methionine if you don't have the complete coding region. Make sure the sequence you provide includes a header/subject line and is in traditional FASTA format.
+
+Chosen sequence:
+
+```         
+>113-853_1 DOG_EST_P78A02 Canis familiaris testis cDNA Canis lupus familiaris cDNA, mRNA sequence 
+(copy and pasted aligned sequence subject lines from BLAST result)
+
+KPESCDNVKVVVRCRPLNEREKSMCYKQAVSVDEMRGTITVHKTDSSNEP
+-KTFTFDTVFGPESKQLDVYNLTARPIIDSVLEGYNGTIFAYGQTGTGKTFTMEGVRAVPE--------LRGIIPNSFAHIFGHIAKAEGDTRFLVRVSYLEIYNEEVRDLL--GKDQTQRLEVKERP--DVGVYIKDLSAYVVNNADDMDRIMTLGHKNRSVGATNMNEHSSRSHAIFTITIECSEKGRDGNMHVRMGKLHLVDLAGS
+```
+
+```         
+>113-853_1 DOG_EST_P78A02 Canis familiaris testis cDNA Canis lupus familiaris cDNA, mRNA sequence 
+(translated nucleotide BLAST sequence via EMBOSS Transeq)
+KPESCDNVKVVVRCRPLNEREKSMCYKQAVSVDEMRGTITVHKTDSSNEPPKTFTFDTVF
+GPESKQLDVYNLTARPIIDSVLEGYNGTIFAYGQTGTGKTFTMEGVRAVPELRGIIPNSF
+AHIFGHIAKAEGDTRFLVRVSYLEIYNEEVRDLLGKDQTQRLEVKERPDVGVYIKDLSAY
+VVNNADDMDRIMTLGHKNRSVGATNMNEHSSRSHAIFTITIECSEKGRDGNMHVRMGKLH
+LVDLAGS
+```
+
+**Name**: *Canis lupus familiaris* testis cDNA
+
+**Species:** *Canis lupus familiaris*
+
+Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Laurasiatheria; Carnivora; Caniformia; Canidae; Canis.
+
+\[**Q4**\] Prove that this gene, and its corresponding protein, are novel. For the purposes of this project, "novel" is defined as follows. Take the protein sequence (your answer to \[Q3\]), and use it as a query in a blastp search of the nr database at NCBI.
+
+**Details:**
+
+A BLASTP search against NR database (see setup in first screen-shot below) yielded a top hit result is to a protein from
+
+![](images/Image%205-16-23%20at%209.11%20AM.jpg)
+
+The top result is to a protein from Prionailurus viverrinus (fishing cat), see second screenshot below for alignment details:
+
+![](images/Image%205-16-23%20at%209.15%20AM.jpg)
+
+![](images/Image%205-16-23%20at%209.17%20AM.jpg)

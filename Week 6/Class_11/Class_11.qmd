@@ -1,0 +1,34 @@
+---
+title: "Class 11: Introduction to Genome Informatics Lab"
+author: Max Gruber
+date: 5/11/2023
+format: html
+---
+
+# **Section 1: Identify genetic variants of interest**
+
+### Q1: What are those 4 candidate SNPs?
+
+rs12936231, rs8067378, rs9303277, and rs7216389 are the 4 candidate SNPs in the Verlaan paper.
+
+### Q2: What three genes do these variants overlap or effect?
+
+ZPBP2, IKZF3, and GSDMB.
+
+### Q3: What is the location of rs8067378 and what are the different alleles for rs8067378?
+
+The location is chromosome 17:39,894,595-39,895,595 and the different alleles are A/C/G (ancestral is G).
+
+### **Q4**: Name at least 3 downstream genes for rs8067378?
+
+3 downstream genes for rs8067378 are MIR6867, GJD3-AS1, and RARA-AS1.
+
+### **Q5**: What proportion of the Mexican Ancestry in Los Angeles sample population (MXL) are homozygous for the asthma associated SNP (G\|G)?
+
+9/64, which is .14.
+
+### **Q6**. Back on the ENSEMBLE page, use the "search for a sample" field above to find the particular sample **HG00109**. This is a male from the GBR population group. What is the genotype for this sample?
+
+The genotype is G\|G.
+
+# **Section 2: Initial RNA-Seq analysis**

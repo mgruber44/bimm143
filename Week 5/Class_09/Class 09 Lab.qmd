@@ -1,0 +1,171 @@
+---
+title: "Class 09: Structural Bioinformatics"
+author: "Max Gruber"
+date: 05/03/2023
+format: pdf
+---
+
+# 1: Introduction to the RCSB Protein Data Bank (PDB)
+
+To read the file, we are going to use the command `read.csv`.
+
+```{r}
+pdb_stats <- read.csv('Data Export Summary.csv', row.names = 1)
+```
+
+### **Q1:** What percentage of structures in the PDB are solved by X-Ray and Electron Microscopy?
+
+I need to sum all the elements of the X.ray column.
+
+```{r}
+pdb_stats$X.ray
+```
+
+We are going to use `gsub` to remove the commas.
+
+```{r}
+xray_without_commas <- gsub(',',"",pdb_stats$X.ray)
+as.numeric(xray_without_commas)
+
+em_without_commas <- gsub(',',"",pdb_stats$EM)
+as.numeric(em_without_commas)
+
+total_without_commas <- gsub(',',"",pdb_stats$Total)
+as.numeric(total_without_commas)
+```
+
+I use the `sum` command to get the sum.
+
+```{r}
+n_xray <- sum(as.numeric(xray_without_commas))
+n_xray
+n_em <- sum(as.numeric(em_without_commas))
+n_em
+n_total <- sum(as.numeric(total_without_commas))
+n_total
+```
+
+Now I can find the percentage.
+
+```{r}
+p_xray <- (n_xray)/ n_total
+p_xray
+p_em <- (n_em)/ n_total
+p_em
+((n_xray + n_em) / n_total)*100
+```
+
+92.99%
+
+### **Q2:** What proportion of structures in the PDB are protein?
+
+```{r}
+protein_without_commas <- gsub(',',"",pdb_stats[1,7])
+as.numeric(protein_without_commas)
+
+n_protein <- sum(as.numeric(protein_without_commas))
+
+n_protein/n_total
+```
+
+.8681, or 86.81%, are protein.
+
+### **Q3:** Type HIV in the PDB website search box on the home page and determine how many HIV-1 protease structures are in the current PDB?
+
+```         
+```
+
+1,292 was one possible answer. Overall, it was difficult to search/find an exact value for the specific criteria because different values came up depending on how and where search criteria was entered.
+
+# 2. Visualizing the HIV-1 protease structure
+
+### **Q4**: Water molecules normally have 3 atoms. Why do we see just one atom per water molecule in this structure?
+
+We see one because in x-ray crystallography it's hard to detect hydrogen (as its density is so small), and so in the structures only oxygen is seen (one atom) because it's simply easier to see.
+
+### **Q5**: There is a critical "conserved" water molecule in the binding site. Can you identify this water molecule? What residue number does this water molecule have?
+
+Yes, you can identify the water molecule, and it has a residue number of 308 (HOH 308).
+
+### **Q6**: Generate and save a figure clearly showing the two distinct chains of HIV-protease along with the ligand. You might also consider showing the catalytic residues ASP 25 in each chain and the critical water (we recommend *"Ball & Stick"* for these side-chains). Add this figure to your Quarto document.
+
+![](1HSG.png){width="540"}
+
+And a second image with the catalytic residues ASP 25 in each chain and the critical water (highlighted in green).
+
+![](1HSG-5.png){width="545"}
+
+# 3. Introduction to Bio3D in R
+
+```{r}
+library(bio3d)
+pdb <- read.pdb("1hsg")
+pdb
+```
+
+### Q7: How many amino acid residues are there in this pdb object? 
+
+There are 198 amino acid residues in this pdb object.
+
+### Q8: Name one of the two non-protein residues?
+
+One of the two non-protein residues is HOH, or water.
+
+### Q9: How many protein chains are in this structure? 
+
+There are 2 protein chains in this structure.
+
+```{r}
+head(pdb$atom)
+```
+
+## Predicting functional motions of a single structure by NMA
+
+```{r}
+adk <- read.pdb('6s36')
+adk
+```
+
+```{r}
+m <- nma(adk)
+```
+
+```{r}
+plot(m)
+```
+
+```{r}
+mktrj(m, file = "adk_m7.pdb")
+```
+
+# 4. Comparative structure analysis of Adenylate Kinase
+
+### Q10. Which of the packages above is found only on BioConductor and not CRAN?
+
+The msa package.
+
+### Q11. Which of the above packages is not found on BioConductor or CRAN?
+
+The bio3d view package.
+
+### Q12. True or False? Functions from the devtools package can be used to install packages from GitHub and BitBucket?
+
+True
+
+## Search and retrieve ADK structures
+
+```{r}
+#install.packages("bio3d")
+#install.packages("devtools")
+#install.packages("BiocManager")
+
+#BiocManager::install("msa")
+#devtools::install_bitbucket("Grantlab/bio3d-view")
+
+library(bio3d)
+aa <- get.seq("1ake_A")
+```
+
+### **Q13.** How many amino acids are in this sequence, i.e. how long is this sequence?
+
+214

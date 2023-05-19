@@ -1,0 +1,34 @@
+---
+title: "BIMM 143 Homework Week 3"
+name: Max Gruber
+PID: A15946032
+date: 4/25/2023
+format: html
+---
+
+### Q6. How would you generalize the original code above to work with any set of input protein structures?
+
+First, we have to load in the library using `library(bio3d)`. After that, we can begin working with the code.
+
+```{r}
+#This code generates an analysis of protein drug interactions by plotting the B factor (low B-factor values indicate a part of a structure that is well ordered, while large B-factor values indicate more flexibile parts of the structure) and residue values. It generates a graph that allows for one to visualize these values.
+
+#first, we assign a protein of interest to object sX
+sX <- read.pdb("protein")
+
+#next, we trim the PDB entry to only include the variables we are interested in plotting for these protein structures. This is the chain and elety entries from object sX - we apply this to another object to specificy this trimming
+sX.chainA <- trim.pdb(sX, chain="A", elety="CA")
+
+#finally, we plot the trimmed PDB protein structure on a graph, with the x-axis showing the residue and using ylab to rename the y-axis to 'Bfactor'. Sse computes the sum of squared differences of the trimmed PDB protein structure data
+plotb3(sX.chainA$atom$b, sse=sX.chainA, typ="l", ylab="Bfactor")
+
+#For example:
+
+sX <- read.pdb("8I8Y")
+sX.chainA <- trim.pdb(sX, chain="A", elety="CA")
+plotb3(sX.chainA$atom$b, sse=sX.chainA, typ="l", ylab="Bfactor")
+
+sX <- read.pdb("7XM8")
+sX.chainA <- trim.pdb(sX, chain="A", elety="CA")
+plotb3(sX.chainA$atom$b, sse=sX.chainA, typ="l", ylab="Bfactor")
+```
