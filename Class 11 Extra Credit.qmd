@@ -1,0 +1,41 @@
+---
+title: "Class 11 Extra Credit"
+author: Max Gruber
+date: 5/23/2023
+format: pdf
+---
+
+			
+
+# **Section 4: Population Scale Analysis**
+
+### Q13: Read this file into R and determine the sample size for each genotype and their corresponding median expression levels for each of these genotypes
+
+```{r}
+genodata <- read.table("datafile.txt")
+
+summary(genodata)
+
+table(genodata$geno)
+```
+
+```{r}
+AA <- genodata$exp[genodata$geno == "A/A"]
+AG <- genodata$exp[genodata$geno == "A/G"]
+GG <- genodata$exp[genodata$geno == "G/G"]
+
+median(AA)
+median(AG)
+median(GG)
+```
+
+The median values for A/A, A/G, and G/G genotypes are 31.248, 25.065, and 20.073, respectively.
+						
+
+### **Q14**: Generate a boxplot with a box per genotype, what could you infer from the relative expression of ORMDL3?
+
+```{r}
+boxplot(AA, AG, GG)
+```
+
+Yes, the SNP does affect the expression of ORMDL3, with A/A having the highest expression value followed by A/G and then G/G, respectively.
