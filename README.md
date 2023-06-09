@@ -4,4 +4,4 @@ This page contains my classwork from BIMM 143: Bioinformatics Lab at UC San Dieg
 
 # Content
 
-- Class 5: [Data exploration and visualization in R] (https://github.com/mgruber44/bimm143/blob/main/Week%203/Class_05/class_05.md)
+- Class 5: [Data exploration and visualization in R](https://github.com/mgruber44/bimm143/blob/main/Week%203/Class_05/class_05.md)
